@@ -1,0 +1,28 @@
+# @format
+
+overwrite: true
+schema: database/schema.graphql
+generates:
+  app/generated/graphql.tsx:
+    documents: app/src/graphql/**/*.graphql
+    plugins:
+      - 'typescript'
+      - 'typescript-operations'
+      - 'typescript-react-apollo'
+    config:
+      withHooks: true
+      namingConvention:
+        enumValues: keep
+      withRefetchFn: true
+      maybeValue: T | undefined
+  app/generated/graphql.d.ts:
+    plugins:
+      - 'typescript-graphql-files-modules'
+  app/generated/graphql.schema.json:
+    plugins:
+      - 'introspection'
+  app/generated/graphql.fragment-types.ts:
+    plugins:
+      - 'fragment-matcher'
+    config:
+      useExplicitTyping: true
