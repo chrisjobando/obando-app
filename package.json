@@ -8,7 +8,7 @@
   "workspaces": {
     "packages": [
       "app",
-      "server"
+      "database"
     ]
   },
   "scripts": {
